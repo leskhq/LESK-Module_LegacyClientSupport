@@ -1,0 +1,9 @@
+{
+	"name": "LegacyClientSupport",
+	"slug": "legacy_client_support",
+	"namespace": "LegacyClientSupport",
+	"version": "1.0",
+	"author": "Sebastien Routier",
+	"license": "GPL-3.0",
+	"description": "Warn or deny access to users using legacy clients."
+}
