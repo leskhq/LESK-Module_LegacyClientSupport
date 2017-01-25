@@ -35,6 +35,7 @@ class LegacyClientSupportServiceProvider extends ServiceProvider
 
 		View::addNamespace('legacy_client_support', base_path('resources/views/vendor/legacy_client_support'));
 		View::addNamespace('legacy_client_support', realpath(__DIR__.'/../Resources/Views'));
+
 	}
 
     /**
@@ -44,7 +45,11 @@ class LegacyClientSupportServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		// $this->addMiddleware('');
+		 $this->addMiddleware(App\Modules\LegacyClientSupport\Http\Middleware\LegacyClientSupportMiddleware::class);
+
+        $this->publishes([
+            __DIR__.'/../assets' => public_path('vendor/lesk-modules/legacy_client_support'),
+        ], 'assets');
 
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('legacy_client_support.php'),

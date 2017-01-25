@@ -28,13 +28,13 @@ Route::group(['prefix' => 'legacy_client_support', 'middleware' => ['web']], fun
 
 
 
-// Routes in this group must be authorized.
-Route::group(['middleware' => 'authorize'], function () {
-
+//// Routes in this group must be authorized.
+//Route::group(['middleware' => 'authorize'], function () {
+//
     // LegacyClientSupport routes
     Route::group(['prefix' => 'legacy_client_support'], function () {
         Route::get('/',        ['as' => 'legacy_client_support.index',         'uses' => 'LegacyClientSupportController@index']);
     }); // End of LegacyClientSupport group
-
-
-}); // end of AUTHORIZE middleware group
+//
+//
+//}); // end of AUTHORIZE middleware group
