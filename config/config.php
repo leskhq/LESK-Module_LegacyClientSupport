@@ -32,6 +32,9 @@ return [
         'Opera' => [
             'default' => 'allow',
         ],
+        'Firefox' => [
+            'default' => 'allow',
+        ],
     ],
 
     /*
