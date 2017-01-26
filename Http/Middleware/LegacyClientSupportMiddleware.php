@@ -35,8 +35,12 @@ class LegacyClientSupportMiddleware
             $platform         = Agent::platform();
             $platform_version = Agent::version($platform);
 
-            $browser_info = "Web browser [".$browser."], version [".$browser_version."], platform [".$platform."], platfomr version [".$platform_version."].";
-            Log::debug($browser_info);
+            if (Setting::get('app.debug', false)) {
+                $ua = Agent::getUserAgent();
+                Log::debug("User Agent received is: ".$ua);
+                $browser_info = "Detected Web browser [".$browser."], version [".$browser_version."], platform [".$platform."], platfomr version [".$platform_version."].";
+                Log::debug($browser_info);
+            }
 
             $behaviour = $this->getBehaviour($browser, $browser_version);
 
